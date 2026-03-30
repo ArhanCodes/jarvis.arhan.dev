@@ -257,13 +257,6 @@ function App() {
         </div>
       </section>
 
-      {/* Terminal Demo */}
-      <section className="pb-16 px-6">
-        <div className="max-w-4xl mx-auto animate-fade-in-up">
-          <TerminalDemo />
-        </div>
-      </section>
-
       {/* Quick Start */}
       <section className="py-16 px-6">
         <div className="max-w-2xl mx-auto">
@@ -321,6 +314,17 @@ function App() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Terminal Demo */}
+      <section className="py-20 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">See It In Action</h2>
+            <p className="text-zinc-500">Real commands. Real responses. Zero latency.</p>
+          </div>
+          <TerminalDemo />
         </div>
       </section>
 
