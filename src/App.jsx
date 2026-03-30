@@ -236,13 +236,8 @@ function App() {
             ))}
           </div>
 
-          {/* Terminal Demo */}
-          <div className="animate-fade-in-up delay-400">
-            <TerminalDemo />
-          </div>
-
           {/* CTA */}
-          <div className="flex justify-center gap-4 mt-10 animate-fade-in-up delay-500">
+          <div className="flex justify-center gap-4 mb-14 animate-fade-in-up delay-400">
             <a
               href="https://github.com/ArhanCodes/jarvis"
               target="_blank"
@@ -258,6 +253,14 @@ function App() {
               Explore Features
             </a>
           </div>
+
+        </div>
+      </section>
+
+      {/* Terminal Demo */}
+      <section className="pb-16 px-6">
+        <div className="max-w-4xl mx-auto animate-fade-in-up">
+          <TerminalDemo />
         </div>
       </section>
 
@@ -304,7 +307,7 @@ function App() {
       <section className="py-20 px-6 bg-jarvis-dark/50">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Multi-Device</h2>
-          <p className="text-zinc-500 mb-10">Same JARVIS, everywhere. Connected via AIM WebSocket relay.</p>
+          <p className="text-zinc-500 mb-10">Same JARVIS, everywhere. Connected via AIM relay.</p>
           <div className="flex justify-center gap-8 md:gap-16">
             {[
               { device: '💻', name: 'Mac', desc: 'Full experience — CLI, voice, menubar, screen awareness' },
