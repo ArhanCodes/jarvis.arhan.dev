@@ -3,7 +3,7 @@ import './index.css'
 
 const FEATURES = [
   { icon: '🎙', title: 'Voice Assistant', desc: 'Always-on wake word detection. Say "Jarvis" and speak naturally — on-device speech recognition via ElevenLabs or Edge TTS.', demo: 'jarvis> "open Safari and play some music"' },
-  { icon: '🧠', title: 'Conversational AI', desc: 'Multi-turn conversations powered by Claude API with Ollama fallback. Executes actions mid-conversation and remembers context across sessions.', demo: 'jarvis> remember my SSH key is at ~/.ssh/id_ed25519' },
+  { icon: '🧠', title: 'Conversational AI', desc: 'Multi-turn conversations powered by Claude API. Executes actions mid-conversation and remembers context across sessions.', demo: 'jarvis> remember my SSH key is at ~/.ssh/id_ed25519' },
   { icon: '🔬', title: 'Deep Research', desc: 'Multi-hop research agent — searches arXiv, Semantic Scholar, and the web. Multiple investigation rounds with cited reports.', demo: 'jarvis> deep research transformer architectures' },
   { icon: '⚡', title: 'Rust Sidecar', desc: 'Compiled Rust binary for sub-millisecond vector search, fuzzy matching, and trace analytics. Falls back to TypeScript when unavailable.', demo: '[rust-bridge] Sidecar ready — 4 capabilities' },
   { icon: '🧬', title: 'Intelligence Layer', desc: 'Trace-driven learning — records every command, detects habits, predicts your next action, and suggests automations.', demo: 'Habit: You run "battery" every morning (92% regularity)' },

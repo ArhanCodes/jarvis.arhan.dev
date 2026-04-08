@@ -30,7 +30,7 @@ const MODULE_CATEGORIES = [
   {
     name: 'AI & Research',
     modules: [
-      { name: 'AI Chat', desc: 'Multi-turn conversations via Claude API with Ollama fallback' },
+      { name: 'AI Chat', desc: 'Multi-turn conversations via Claude API' },
       { name: 'Research', desc: 'Web search, summarization, and comparison reports' },
       { name: 'Smart Assist', desc: 'Context-aware suggestions based on current activity' },
       { name: 'Personality', desc: 'Configurable personality traits and response style' },
@@ -231,7 +231,7 @@ function GettingStarted() {
         <li>Node.js 20+</li>
         <li>Xcode Command Line Tools (for voice and screen features)</li>
         <li>Rust toolchain (optional, for sidecar build)</li>
-        <li>Claude API key or local Ollama instance</li>
+        <li>Claude API key</li>
       </ul>
 
       <DocSubheading>Installation</DocSubheading>
