@@ -2,96 +2,39 @@ import { useState, useEffect, useRef } from 'react'
 import './index.css'
 
 const FEATURES = [
-  {
-    icon: '🎙',
-    title: 'Voice Assistant',
-    desc: 'Always-on wake word detection. Say "Jarvis" and speak naturally — on-device speech recognition, no cloud dependency.',
-    demo: 'jarvis> "open Safari and set volume to 50"',
-  },
-  {
-    icon: '🧠',
-    title: 'Conversational AI',
-    desc: 'Multi-turn conversations powered by Claude API with Ollama fallback. Executes actions mid-conversation and remembers context.',
-    demo: 'jarvis> remember my deadline is March 20th',
-  },
-  {
-    icon: '👁',
-    title: 'Screen Awareness',
-    desc: 'OCR-based screen reading — JARVIS can see what\'s on your screen and respond to it contextually.',
-    demo: 'jarvis> what\'s on my screen right now?',
-  },
-  {
-    icon: '🌐',
-    title: 'Browser Automation',
-    desc: 'Full Playwright-powered browser control — navigate, search, click, fill forms, read pages, take screenshots.',
-    demo: 'jarvis> browse youtube.com',
-  },
-  {
-    icon: '⌚',
-    title: 'Multi-Device',
-    desc: 'Apple Watch and iPhone apps connect via AIM WebSocket relay. Same capabilities across all your devices.',
-    demo: 'Connected: Mac, iPhone, Apple Watch',
-  },
-  {
-    icon: '💬',
-    title: 'WhatsApp',
-    desc: 'Send and read WhatsApp messages through automated browser control. Hands-free messaging.',
-    demo: 'jarvis> send whatsapp to John: Hey!',
-  },
-  {
-    icon: '🎵',
-    title: 'Media Control',
-    desc: 'Full Spotify and Apple Music control — play, pause, skip, search, playlists, shuffle.',
-    demo: 'jarvis> play Osamason',
-  },
-  {
-    icon: '🔧',
-    title: 'System Control',
-    desc: 'Volume, brightness, dark mode, DND, sleep, lock, restart — full macOS system control.',
-    demo: 'jarvis> dark mode on && volume 30',
-  },
-  {
-    icon: '📁',
-    title: 'File Operations',
-    desc: 'Spotlight-powered file search, move, copy, delete. Browse directories and manage files by voice.',
-    demo: 'jarvis> search package.json',
-  },
-  {
-    icon: '🪟',
-    title: 'Window Manager',
-    desc: 'Tile windows, arrange side by side, fullscreen, resize — manage your workspace hands-free.',
-    demo: 'jarvis> tile Safari left && tile Chrome right',
-  },
-  {
-    icon: '⏱',
-    title: 'Timers & Reminders',
-    desc: 'Set timers, alarms, reminders with macOS notifications. Supports natural time formats.',
-    demo: 'jarvis> remind me in 1 hour to push code',
-  },
-  {
-    icon: '🔄',
-    title: 'Workflows & Scheduling',
-    desc: 'Create multi-step automations, schedule recurring tasks, run macOS Shortcuts.',
-    demo: 'jarvis> every 5 min run battery',
-  },
+  { icon: '🎙', title: 'Voice Assistant', desc: 'Always-on wake word detection. Say "Jarvis" and speak naturally — on-device speech recognition via ElevenLabs or Edge TTS.', demo: 'jarvis> "open Safari and play some music"' },
+  { icon: '🧠', title: 'Conversational AI', desc: 'Multi-turn conversations powered by Claude API with Ollama fallback. Executes actions mid-conversation and remembers context across sessions.', demo: 'jarvis> remember my SSH key is at ~/.ssh/id_ed25519' },
+  { icon: '🔬', title: 'Deep Research', desc: 'Multi-hop research agent — searches arXiv, Semantic Scholar, and the web. Multiple investigation rounds with cited reports.', demo: 'jarvis> deep research transformer architectures' },
+  { icon: '⚡', title: 'Rust Sidecar', desc: 'Compiled Rust binary for sub-millisecond vector search, fuzzy matching, and trace analytics. Falls back to TypeScript when unavailable.', demo: '[rust-bridge] Sidecar ready — 4 capabilities' },
+  { icon: '🧬', title: 'Intelligence Layer', desc: 'Trace-driven learning — records every command, detects habits, predicts your next action, and suggests automations.', demo: 'Habit: You run "battery" every morning (92% regularity)' },
+  { icon: '👁', title: 'Screen Awareness', desc: "OCR-based screen reading — JARVIS can see what's on your screen and respond to it contextually.", demo: "jarvis> what's on my screen right now?" },
+  { icon: '🌐', title: 'Browser Automation', desc: 'Full Playwright-powered browser control — navigate, search, click, fill forms, read pages, take screenshots.', demo: 'jarvis> browse youtube.com' },
+  { icon: '⌚', title: 'Multi-Device', desc: 'Apple Watch and iPhone apps connect via AIM WebSocket relay. Same JARVIS across all your devices.', demo: 'Connected: Mac, iPhone, Apple Watch' },
+  { icon: '🏠', title: 'Smart Home', desc: 'HomeKit control via macOS Shortcuts — lights, thermostat, locks, scenes. Natural language device control.', demo: 'jarvis> turn off the living room lights' },
+  { icon: '🎵', title: 'Spotify & Media', desc: 'Full Spotify Web API integration — play, pause, search, playlists, queue. Plus Apple Music control.', demo: 'jarvis> play Osamason on Spotify' },
+  { icon: '🛡', title: 'Security Monitoring', desc: 'Always-on breach monitor, network guardian, and threat detection. Alerts on your Apple Watch.', demo: '[breach-monitor] Scanning dark web...' },
+  { icon: '🤖', title: 'Multi-Agent', desc: 'Spawn parallel agents for complex tasks. Coding agent, dev agent, and self-improving module generator.', demo: 'jarvis> run coding agent on ~/project' },
+  { icon: '📧', title: 'Email & Calendar', desc: 'Gmail and Google Calendar integration — read, send, schedule. Morning digest with daily briefing.', demo: 'jarvis> check my email' },
+  { icon: '🔧', title: 'System Control', desc: 'Volume, brightness, dark mode, DND, sleep, lock — full macOS system control with 200+ commands.', demo: 'jarvis> dark mode on && volume 30' },
+  { icon: '🔌', title: 'Plugin System', desc: 'Hot-reloadable modules with @RegisterModule() decorator. Install community plugins or generate your own.', demo: 'jarvis> self-improve: create a pomodoro module' },
 ]
 
 const COMMANDS = [
-  { cmd: 'open Safari', result: 'Opened Safari', icon: '🚀' },
+  { cmd: 'research quantum computing', result: '15 papers analyzed, report saved', icon: '🔬' },
   { cmd: 'battery', result: 'Battery: 85%, charging', icon: '🔋' },
-  { cmd: 'play Osamason', result: 'Searching Spotify...', icon: '🎵' },
-  { cmd: 'dark mode on', result: 'Dark mode enabled', icon: '🌙' },
+  { cmd: 'play Osamason on Spotify', result: 'Playing on Spotify...', icon: '🎵' },
+  { cmd: 'deep research AI agents', result: '4 rounds, 28 papers, 12 web sources', icon: '🧠' },
   { cmd: 'good morning', result: 'Running morning routine...', icon: '☀️' },
-  { cmd: 'volume 50', result: 'Volume set to 50%', icon: '🔊' },
-  { cmd: 'what\'s on my screen?', result: 'I can see VS Code open with...', icon: '👁' },
-  { cmd: 'timer 5 min', result: 'Timer set for 5m', icon: '⏱' },
+  { cmd: 'turn off living room lights', result: 'HomeKit: lights off', icon: '🏠' },
+  { cmd: "what's on my screen?", result: 'I can see VS Code open with...', icon: '👁' },
+  { cmd: 'compare React vs Vue', result: 'Comparison complete with table', icon: '⚡' },
 ]
 
 const STATS = [
-  { value: '25+', label: 'Modules' },
-  { value: '200+', label: 'Commands' },
+  { value: '45+', label: 'Modules' },
+  { value: '500+', label: 'Commands' },
   { value: '7', label: 'Parse Phases' },
-  { value: '3', label: 'Devices' },
+  { value: '4', label: 'Engines' },
 ]
 
 function TerminalDemo() {
@@ -171,14 +114,14 @@ function ArchitectureDiagram() {
         <div className="text-jarvis-blue">User Input (Voice / Text / Watch / Phone)</div>
         <div className="text-zinc-600">↓</div>
         <div className="flex flex-wrap justify-center gap-2">
-          {['Variable Expansion', 'Alias Expansion', 'Pattern Parser', 'Keyword Match', 'Fuzzy Match', 'NLU Mapping', 'Conversation AI'].map((phase, i) => (
+          {['Variable Expansion', 'Alias Expansion', 'Pattern Parser', 'Keyword Match', 'Rust Fuzzy Match', 'NLU Mapping', 'Conversation AI'].map((phase, i) => (
             <span key={i} className="px-3 py-1 bg-jarvis-darker border border-jarvis-border rounded text-xs text-zinc-300">
               {i + 1}. {phase}
             </span>
           ))}
         </div>
         <div className="text-zinc-600">↓</div>
-        <div className="text-green-400">25 Modules → AppleScript / Shell / LLM → Response</div>
+        <div className="text-green-400">45+ Modules → Rust Sidecar / AppleScript / Shell / LLM → Response</div>
       </div>
     </div>
   )
@@ -197,6 +140,7 @@ function App() {
           <div className="flex items-center gap-6">
             <a href="#features" className="text-sm text-zinc-400 hover:text-white transition-colors">Features</a>
             <a href="#architecture" className="text-sm text-zinc-400 hover:text-white transition-colors">Architecture</a>
+            <a href="/docs" className="text-sm text-zinc-400 hover:text-white transition-colors">Docs</a>
             <a
               href="https://github.com/ArhanCodes/jarvis"
               target="_blank"
@@ -222,8 +166,7 @@ function App() {
             Just A Rather Very Intelligent System
           </p>
           <p className="text-base text-zinc-500 max-w-2xl mx-auto mb-10 animate-fade-in-up delay-200 leading-relaxed">
-            A macOS AI assistant with voice control, screen awareness, browser automation,
-            and multi-device support. Talk to it, type to it, or let it watch your screen.
+            A macOS AI assistant with voice control, screen awareness, deep research, a Rust performance sidecar, and multi-device support. 45+ modules. Self-improving.
           </p>
 
           {/* Stats */}
@@ -277,7 +220,7 @@ function App() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-3">Features</h2>
-            <p className="text-zinc-500">25+ modules. 200+ commands. Zero latency parsing.</p>
+            <p className="text-zinc-500">45+ modules. 500+ commands. Zero latency parsing.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
             {FEATURES.map((f, i) => (
