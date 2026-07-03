@@ -5,7 +5,7 @@ import { LogoMark } from './Logo.jsx'
 // Rotating headline word: types a word, holds, deletes, types the next.
 // Upright vermilion (the old accent colour, minus the italics).
 function RotatingWord() {
-  const words = ['companion', 'assistant', 'programmer', 'helper']
+  const words = ['companion', 'assistant', 'programmer', 'employee', 'helper']
   const [index, setIndex] = useState(0)
   const [sub, setSub] = useState(words[0].length)
   const [deleting, setDeleting] = useState(false)
@@ -249,6 +249,39 @@ function Stats() {
   )
 }
 
+// Real screen recording: the pill answering live, then the menu bar — recorded
+// on-device against the running core (see /demo assets).
+function LiveDemo() {
+  return (
+    <section>
+      <div className="max-w-5xl mx-auto px-6 py-24 md:py-32">
+        <p className="eyebrow">Straight off the Mac</p>
+        <h2 className="display text-4xl md:text-5xl mt-5 max-w-3xl leading-tight">
+          This is it, <span className="display-italic">running.</span>
+        </h2>
+        <p className="text-ink-2 text-lg leading-relaxed mt-6 max-w-2xl">
+          A real recording. Option-Space opens the pill, you type like you talk, and JARVIS
+          answers from the live core. It lives in the menu bar too.
+        </p>
+
+        <div className="card mt-12 overflow-hidden">
+          <video
+            className="w-full h-auto block"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster="/demo/poster.jpg"
+          >
+            <source src="/demo/hero.webm" type="video/webm" />
+            <source src="/demo/hero.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+  )
+}
+
 function Demo() {
   return (
     <section className="bg-grid">
@@ -429,6 +462,7 @@ export default function App() {
       <main>
         <Hero />
         <Stats />
+        <LiveDemo />
         <Demo />
         <Features />
         <Architecture />
