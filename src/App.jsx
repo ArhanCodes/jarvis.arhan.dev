@@ -38,7 +38,7 @@ const FEATURES = [
   },
   {
     title: 'Conversational AI',
-    desc: 'Multi-turn conversations powered by Claude API. Executes actions mid-conversation and remembers context across sessions.',
+    desc: 'Multi-turn conversations powered by Claude (Sonnet 4.6 by default, with a Haiku 4.5 fast tier for quick tasks). Executes actions mid-conversation and remembers context across sessions.',
   },
   {
     title: 'Deep Research',
@@ -54,11 +54,19 @@ const FEATURES = [
   },
   {
     title: 'Screen Awareness',
-    desc: 'OCR-based screen reading; JARVIS can see what’s on your screen and respond contextually.',
+    desc: 'Claude vision reads your screen directly and responds in context, with on-device macOS Vision OCR as an offline fallback.',
   },
   {
     title: 'Browser Automation',
     desc: 'Full Playwright-powered browser control: navigate, search, click, fill forms, read pages, screenshot.',
+  },
+  {
+    title: 'Computer Control',
+    desc: 'Native macOS mouse, keyboard, and screen control via cliclick: click, type, hotkeys, scroll, screenshots, and window focus.',
+  },
+  {
+    title: 'Desktop Control',
+    desc: 'Set the wallpaper and organize or clean up Desktop files on command.',
   },
   {
     title: 'Multi-Device',
@@ -70,15 +78,23 @@ const FEATURES = [
   },
   {
     title: 'Spotify & Media',
-    desc: 'Full Spotify Web API integration plus Apple Music control: play, pause, search, playlists, queue.',
+    desc: 'Spotify playback and search plus Apple Music control: play, pause, and find music by name.',
+  },
+  {
+    title: 'WHOOP Health',
+    desc: 'WHOOP recovery, sleep, and strain: ask how recovered or rested you are, or get a daily WHOOP digest.',
+  },
+  {
+    title: 'Flight Finder',
+    desc: 'Search flights via Google Flights straight from a natural-language request.',
   },
   {
     title: 'Security Monitoring',
-    desc: 'Always-on breach monitor, network guardian, and threat detection. Alerts on your Apple Watch.',
+    desc: 'Always-on breach monitor, network guardian, and threat detection, with breach status you can check on demand from your Apple Watch.',
   },
   {
     title: 'Multi-Agent',
-    desc: 'Spawn parallel agents for complex tasks: coding agent, dev agent, self-improving module generator.',
+    desc: 'Three autonomous agents: Fable, a Claude-Code-style builder that writes files and runs commands, plus a dev agent and a self-improving module generator.',
   },
   {
     title: 'Email & Calendar',
@@ -86,7 +102,7 @@ const FEATURES = [
   },
   {
     title: 'System Control',
-    desc: 'Volume, brightness, dark mode, DND, sleep, lock; full macOS control with 200+ commands.',
+    desc: 'Volume, brightness, dark mode, DND, sleep, and lock: deep macOS control through natural language.',
   },
   {
     title: 'WhatsApp',

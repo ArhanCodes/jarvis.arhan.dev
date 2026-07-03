@@ -151,7 +151,7 @@ function GettingStarted() {
           <><strong className="text-ink">Node.js 20+</strong>.</>,
           <><strong className="text-ink">Xcode Command Line Tools</strong> for voice and screen features - <Code>xcode-select --install</Code>.</>,
           <><strong className="text-ink">Rust toolchain</strong> - optional, only needed to build the performance sidecar.</>,
-          <><strong className="text-ink">Claude API key</strong> - powers the conversation engine and AI commands.</>,
+          <><strong className="text-ink">Claude API key</strong> - powers the conversation engine and AI commands (Claude Sonnet 4.6 by default, with a Haiku 4.5 fast tier for quick tasks).</>,
         ]}
       />
 
@@ -184,6 +184,8 @@ $ npm run dev`}
           { cmd: 'good morning', desc: 'Run a routine that chains weather, news, and volume.' },
           { cmd: 'ask what is recursion', desc: 'Chat with the Claude-powered AI.' },
           { cmd: 'message mom running late', desc: 'Send a WhatsApp message instantly.' },
+          { cmd: 'how recovered am I', desc: 'WHOOP recovery, sleep, and strain readiness.' },
+          { cmd: 'find flights to Tokyo next week', desc: 'Search flights via Google Flights.' },
         ]}
       />
     </section>
