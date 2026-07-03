@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './index.css'
+import { LogoMark } from './Logo.jsx'
 
 /* ── Sidebar map ──────────────────────────────────────────────────── */
 
@@ -1146,7 +1147,8 @@ function Docs() {
       {/* Nav */}
       <nav className="fixed top-0 w-full z-50 bg-paper/80 backdrop-blur-md border-b border-line">
         <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="/" className="mono font-bold tracking-[0.22em] text-ink text-sm">
+          <a href="/" className="flex items-center gap-2.5 mono font-bold tracking-[0.22em] text-ink text-sm">
+            <LogoMark size={22} />
             JARVIS
           </a>
           <div className="flex items-center gap-6 text-sm">

@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import './index.css'
+import { LogoMark } from './Logo.jsx'
 
 // Rotating headline word: types a word, holds, deletes, types the next.
 // Upright vermilion (the old accent colour, minus the italics).
@@ -151,7 +152,8 @@ function Nav() {
   return (
     <nav className="fixed top-0 inset-x-0 z-50 bg-paper/80 backdrop-blur-md border-b border-line">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <a href="#top" className="font-mono font-bold tracking-widest text-ink text-sm">
+        <a href="#top" className="flex items-center gap-2.5 font-mono font-bold tracking-widest text-ink text-sm">
+          <LogoMark size={22} />
           JARVIS
         </a>
         <div className="flex items-center gap-7 text-sm">
