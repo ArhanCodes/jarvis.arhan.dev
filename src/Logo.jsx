@@ -1,8 +1,16 @@
 // The JARVIS mark — the same waveform glyph as the macOS menu bar icon,
-// white on the vermilion squircle. Used in the navbars; favicon.svg matches.
-export function LogoMark({ size = 20 }) {
+// white on the vermilion squircle. Used in the navbars and hero; favicon.svg
+// matches. `animated` makes the bars ripple like a live waveform (CSS in
+// index.css; disabled under prefers-reduced-motion).
+export function LogoMark({ size = 20, animated = false, className = '' }) {
   return (
-    <svg width={size} height={size} viewBox="0 0 100 100" aria-hidden="true" className="shrink-0">
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 100 100"
+      aria-hidden="true"
+      className={`shrink-0 ${animated ? 'wave-animated' : ''} ${className}`.trim()}
+    >
       <rect width="100" height="100" rx="22" fill="#C0533A" />
       <g fill="#F4EFE6">
         <rect x="15.5" y="42" width="5" height="16" rx="2.5" />

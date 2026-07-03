@@ -191,6 +191,11 @@ function Hero() {
         </div>
 
         <h1 className="display text-5xl sm:text-6xl lg:text-7xl leading-[1.04] mt-6 max-w-4xl fade-up d2">
+          <LogoMark
+            animated
+            size="0.78em"
+            className="inline-block align-[-0.06em] mr-5 rounded-[22%]"
+          />
           Your macOS <RotatingWord />
         </h1>
 

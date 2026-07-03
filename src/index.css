@@ -165,3 +165,28 @@ body {
 .d4 { animation-delay: 0.24s; }
 .d5 { animation-delay: 0.3s; }
 .d6 { animation-delay: 0.36s; }
+
+/* Animated logo mark: the waveform bars ripple like a live signal.
+   Travelling left-to-right stagger; squircle background rect is untouched
+   (selector only hits bars inside the <g>). */
+.wave-animated g rect {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: logo-wave 1.15s ease-in-out infinite;
+}
+.wave-animated g rect:nth-of-type(1) { animation-delay: 0s; }
+.wave-animated g rect:nth-of-type(2) { animation-delay: 0.09s; }
+.wave-animated g rect:nth-of-type(3) { animation-delay: 0.18s; }
+.wave-animated g rect:nth-of-type(4) { animation-delay: 0.27s; }
+.wave-animated g rect:nth-of-type(5) { animation-delay: 0.36s; }
+.wave-animated g rect:nth-of-type(6) { animation-delay: 0.45s; }
+.wave-animated g rect:nth-of-type(7) { animation-delay: 0.54s; }
+.wave-animated g rect:nth-of-type(8) { animation-delay: 0.63s; }
+.wave-animated g rect:nth-of-type(9) { animation-delay: 0.72s; }
+@keyframes logo-wave {
+  0%, 100% { transform: scaleY(0.45); }
+  50% { transform: scaleY(1.12); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wave-animated g rect { animation: none; }
+}
